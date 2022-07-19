@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,8 +7,8 @@
 }
 
 body {
-  background: linear-gradient(90deg, rgba(165,181,217,1) 14%, rgba(255,255,255,1) 100%);
-  font-family: 'Source Sans Pro', sans-serif;
+  background: linear-gradient(90deg, rgba(201,187,207,1) 22%, rgba(214,239,237,1) 76%);
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -20,5 +20,37 @@ body {
 }
 
 img {
-  min-width: 250px;
+  min-width: 175px;
+}
+
+h1 {
+  text-align: center;
+  font-size: max(2.5vw, 2em, 2rem);
+}
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  background-color: #fff;
+  color: #506491;
+  padding: 0.5vw 0.5vw;
+  font-size: max(2vw, 1.5em, 1.5rem);
+  border: 3px solid #506491;
+  border-radius: 5px;
+  transition: background-color 0.4s;
+}
+
+button:hover {
+  background-color: #506491;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+.title {
+  text-align: center;
+  font-size: max(7vw, 4em, 4rem);
 }
