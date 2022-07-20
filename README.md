@@ -3,6 +3,6 @@
  alt="logo" style="display: block; margin: 0 auto"></img>
 </p>
 
-# Simpleread
+# SimpleRead
 
 A simple, minimalist book review website
