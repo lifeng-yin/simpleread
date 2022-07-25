@@ -54,3 +54,32 @@ button:active {
   text-align: center;
   font-size: max(7vw, 4em, 4rem);
 }
+
+nav {
+  background-color: #506491;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0px 1rem;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: #fff;
+  font-size: max(2vw, 30px);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #A78DAD;
+}

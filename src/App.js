@@ -1,26 +1,25 @@
 import React from 'react'
-import logolarge from './logos/SIMPLEREAD_LOGO.png'
 
 //import bootstrap icons
 import "bootstrap-icons/font/bootstrap-icons.css";
 
+//import react router
+import { Route, Routes } from 'react-router-dom'
+
+import Home from './pages/Home.js'
+import About from './pages/About.js'
+import Navbar from './Navbar.js'
+
 const App = () => {
   return (
     <>
-      <img alt = 'logo' className = 'center' src = {logolarge} style = {{width: '15%', marginTop: '3%'}}></img>
-      <h1 className = 'title' style = {{color: '#506491', fontWeight: '900', marginTop: '-2%'}}>SimpleRead</h1>
-      <h1 style = {{color: '#a48dad'}}>Book reviewing made simple</h1>
-      <button className = 'center' style = {{marginTop: '3%'}}>
-        {'Review A Book '}
-        <i class="bi bi-book"></i>
-      </button>
-      <button className = 'center' style = {{marginTop: '1%'}}>
-        {'Read Some Reviews '}
-        <i class="bi bi-list-stars"></i>
-      </button>
-      <p>
-        lol
-      </p>
+    <Navbar/>
+
+    <Routes>
+      <Route path = '/home' element = {<Home/>}/>
+      <Route path = '/about' element = {<About/>}/>
+    </Routes>
+    
     </>
   )
 }
