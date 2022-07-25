@@ -10,7 +10,17 @@ import Home from './pages/Home.js'
 import About from './pages/About.js'
 import Navbar from './Navbar.js'
 
+const fs = require('fs')
+const files = fs.readdirSync('./pages')
+
+for (const file of files) {
+  console.log(file)
+}
+
 const App = () => {
+
+
+
   return (
     <>
     <Navbar/>

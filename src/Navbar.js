@@ -17,9 +17,6 @@ const Navbar = () => {
 
         <ul>
           <li>
-              <CustomLink to = '/'>Home</CustomLink>
-          </li>
-          <li>
               <CustomLink to = './about'>About</CustomLink>
           </li>
         </ul>

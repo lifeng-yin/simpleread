@@ -3,9 +3,9 @@ import React from 'react'
 const About = () => {
   return (
     <>
-    <div>
-        <button>lol</button>
-        <p>eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
+    <div className='container'>
+      <h1 style = {{}}>About Us</h1>
+      <p>we exist</p>
     </div>
     </>
   )
