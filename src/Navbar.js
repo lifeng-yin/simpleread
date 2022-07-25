@@ -6,16 +6,22 @@ import { Link, useMatch, useResolvedPath } from 'react-router-dom'
 const Navbar = () => {
   return (
     <nav>
-        
-        <img src = {logolarge} alt = 'logo' width = '7%' style = {{minWidth: '0px'}}></img>
 
         <ul>
-            <li>
-                <CustomLink to = './home'>Home</CustomLink>
-            </li>
-            <li>
-                <CustomLink to = './about'>About</CustomLink>
-            </li>
+          <li>
+            <CustomLink to = '/'>
+              <img src = {logolarge} alt = 'logo' width = '15%' style = {{minWidth: '0px', listStyleType: 'none'}}></img>
+            </CustomLink>
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+              <CustomLink to = '/'>Home</CustomLink>
+          </li>
+          <li>
+              <CustomLink to = './about'>About</CustomLink>
+          </li>
         </ul>
 
     </nav>
