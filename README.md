@@ -6,3 +6,5 @@
 # SimpleRead
 
 A simple, minimalist book review website
+
+https://lifeng-yin.github.io/simpleread/
