@@ -6,20 +6,11 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 //import react router
 import { Route, Routes } from 'react-router-dom'
 
-import Home from './pages/Home.js'
 import About from './pages/About.js'
+import Home from './pages/Home.js'
 import Navbar from './Navbar.js'
 
-const fs = require('fs')
-const files = fs.readdirSync('./pages')
-
-for (const file of files) {
-  console.log(file)
-}
-
 const App = () => {
-
-
 
   return (
     <>

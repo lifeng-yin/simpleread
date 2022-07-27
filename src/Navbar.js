@@ -17,6 +17,10 @@ const Navbar = () => {
 
         <ul>
           <li>
+              <CustomLink to = '/'>Home</CustomLink>
+          </li>
+          <p className = 'navspacer'>{' | '}</p>
+          <li>
               <CustomLink to = './about'>About</CustomLink>
           </li>
         </ul>
