@@ -1,7 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const About = () => {
+  let navigate = useNavigate(); 
+
   return (
     <>
       <div className='container'>
@@ -11,9 +13,13 @@ const About = () => {
           we exist
         </p>
 
-        <Link to='/' className = 'navlink' style = {{ marginTop: '25px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          Back To Home
-        </Link>
+        <button className = 'center' style = {{marginTop: '2%'}} onClick = {
+          () =>{ 
+            navigate('/');
+          }          
+        }>
+          {'Back To Home'}
+        </button>
       </div>
     </>
   )

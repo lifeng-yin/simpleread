@@ -41,25 +41,26 @@ h1 {
   font-size: max(2.5vw, 2em, 2rem);
 }
 
-button {
+button, .btn{
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
-  background-color: #fff;
-  color: #7188b9;
+  background-color: #A2B0CF;
+  color: #fff;
   padding: 0.5vw 0.5vw;
   font-size: max(2vw, 1.5em, 1.5rem);
-  border: 3px solid #7188b9;
+  border: 3px solid #A2B0CF;
   border-radius: 5px;
   transition: background-color 0.4s;
+  text-decoration: none;
 }
 
-button:hover {
-  background-color: #7188b9;
-  color: #fff;
+button:hover, .btn:hover {
+  background-color: #fff;
+  color: #A2B0CF;
   cursor: pointer;
 }
 
-button:active {
+button:active, .btn:active{
   transform: scale(0.9);
 }
 
@@ -69,13 +70,17 @@ button:active {
 }
 
 nav {
-  background-color: #506491;
+  background-color: rgb(256, 256, 256, 0);
   color: #fff;
   display: flex;
-  justify-content: space-between;
-  gap: 2rem;
   padding: 0px 1rem;
+  justify-content: space-between;
   align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+nav:hover {
+  background-color: rgb(256, 256, 256, 1);
 }
 
 nav ul {
@@ -86,7 +91,7 @@ nav ul {
 }
 
 nav a, .navlink {
-  color: #fff;
+  color: #506491;
   font-size: max(2vw, 30px);
   font-weight: bold;
   text-decoration: none;
@@ -94,7 +99,7 @@ nav a, .navlink {
 }
 
 .navspacer {
-  color: #fff;
+  color: #506491;
   font-size: max(2vw, 30px);
   font-weight: bold;
   text-decoration: none;

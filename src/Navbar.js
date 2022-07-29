@@ -10,14 +10,14 @@ const Navbar = () => {
         <ul>
           <li>
             <CustomLink to = '/'>
-              <img src = {logolarge} alt = 'logo' width = '15%' style = {{minWidth: '0px', listStyleType: 'none'}}></img>
+              <img src = {logolarge} width = '15%' alt = 'logo' style = {{minWidth: '0px', listStyleType: 'none'}}></img>
             </CustomLink>
           </li>
         </ul>
 
         <ul>
           <li>
-              <CustomLink to = '/'>Home</CustomLink>
+              <CustomLink to = '/explore'>Explore</CustomLink>
           </li>
           <p className = 'navspacer'>{' | '}</p>
           <li>
