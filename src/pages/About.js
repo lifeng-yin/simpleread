@@ -6,10 +6,10 @@ const About = () => {
 
   return (
     <>
-      <div className='container'>
-        <h1 style = {{color: '#fff', fontSize: '85px'}}>About Us</h1>
+      <div className='container' style = {{width: 'max(60%, 400px)'}}>
+        <h1 style = {{color: '#fff', fontSize: 'max(50px, 8vw)'}}>About Us</h1>
         
-        <p style = {{color: '#000', fontSize: '30px'}}>
+        <p style = {{color: '#000', fontSize: 'max(20px, 2vw)'}}>
           we exist
         </p>
 

@@ -10,7 +10,7 @@ const Navbar = () => {
         <ul>
           <li>
             <CustomLink to = '/'>
-              <img src = {logolarge} width = '15%' alt = 'logo' style = {{minWidth: '0px', listStyleType: 'none'}}></img>
+              <img src = {logolarge} alt = 'logo' style = {{width: '15%', minWidth: '70px', listStyleType: 'none'}}></img>
             </CustomLink>
           </li>
         </ul>

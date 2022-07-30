@@ -92,7 +92,7 @@ nav ul {
 
 nav a, .navlink {
   color: #506491;
-  font-size: max(2vw, 30px);
+  font-size: max(2vw, 25px);
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s;
@@ -100,7 +100,7 @@ nav a, .navlink {
 
 .navspacer {
   color: #506491;
-  font-size: max(2vw, 30px);
+  font-size: max(2vw, 25px);
   font-weight: bold;
   text-decoration: none;
 }
