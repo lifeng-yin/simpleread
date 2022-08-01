@@ -60,7 +60,7 @@ button:hover, .btn:hover {
   cursor: pointer;
 }
 
-button:active, .btn:active{
+button:active, .btn:active {
   transform: scale(0.9);
 }
 
