@@ -1,6 +1,8 @@
 const { MongoClient } = require("mongodb");
-const Db = process.env.ATLAS_URI;
-const client = new MongoClient(Db, {
+const dotenv = require('dotenv').config()
+
+const uri = 'mongodb+srv://simpleread-1:simpleread1@cluster0.bdmmz.mongodb.net/?retryWrites=true&w=majority'
+const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -10,7 +12,6 @@ var _db;
 module.exports = {
   connectToServer: function (callback) {
     client.connect(function (err, db) {
-      // Verify we got a good "db" object
       if (db)
       {
         _db = db.db("employees");
