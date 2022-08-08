@@ -21,6 +21,10 @@ const Navbar = () => {
           </li>
           <p className = 'navspacer'>{' | '}</p>
           <li>
+              <CustomLink to = '/add'>Add Review</CustomLink>
+          </li>
+          <p className = 'navspacer'>{' | '}</p>
+          <li>
               <CustomLink to = './about'>About</CustomLink>
           </li>
         </ul>
