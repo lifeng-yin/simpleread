@@ -91,11 +91,16 @@ nav ul {
 }
 
 nav a, .navlink {
+  background-image: linear-gradient(90deg, rgba(201,187,207,1) 22%, rgba(214,239,237,1) 76%);
+  background-size: 0% 5px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+
   color: #506491;
   font-size: max(2vw, 25px);
   font-weight: bold;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s, background-size 0.5s ease;
 }
 
 .navspacer {
@@ -106,5 +111,5 @@ nav a, .navlink {
 }
 
 nav a:hover, .navlink:hover {
-  color: #A78DAD;
+  background-size: 100% 5px;
 }
