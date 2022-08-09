@@ -9,7 +9,7 @@ const Navbar = () => {
 
         <ul>
           <li>
-            <CustomLink to = '/'>
+            <CustomLink to = '/simpleread/'>
               <img src = {logolarge} alt = 'logo' style = {{width: '15%', minWidth: '70px', listStyleType: 'none'}}></img>
             </CustomLink>
           </li>
@@ -17,15 +17,15 @@ const Navbar = () => {
 
         <ul>
           <li>
-              <CustomLink to = '/explore'>Explore</CustomLink>
+              <CustomLink to = '/simpleread/explore'>Explore</CustomLink>
           </li>
           <p className = 'navspacer'>{' | '}</p>
           <li>
-              <CustomLink to = '/add'>Add Review</CustomLink>
+              <CustomLink to = '/simpleread/add'>Add Review</CustomLink>
           </li>
           <p className = 'navspacer'>{' | '}</p>
           <li>
-              <CustomLink to = './about'>About</CustomLink>
+              <CustomLink to = '/simpleread/about'>About</CustomLink>
           </li>
         </ul>
 

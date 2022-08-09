@@ -15,7 +15,7 @@ const About = () => {
 
         <button className = 'center' style = {{marginTop: '2%'}} onClick = {
           () =>{ 
-            navigate('/');
+            navigate('/simpleread/');
           }          
         }>
           {'Back To Home'}

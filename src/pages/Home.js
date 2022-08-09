@@ -19,7 +19,7 @@ const Home = () => {
         
         <button className = 'center' style = {{marginTop: '20px'}} onClick = {
         () =>{ 
-          navigate('/explore');
+          navigate('/simpleread/explore');
         }}>
           {'Read Some Reviews '}
           <i class="bi bi-list-stars"></i>
