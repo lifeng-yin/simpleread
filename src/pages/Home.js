@@ -14,7 +14,7 @@ const Home = () => {
         
         <button className = 'center' style = {{marginTop: '2%'}}>
           {'Review A Book '}
-          <i class="bi bi-book"></i>
+          <i className="bi bi-book"></i>
         </button>
         
         <button className = 'center' style = {{marginTop: '20px'}} onClick = {
