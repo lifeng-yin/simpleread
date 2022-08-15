@@ -15,7 +15,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <ul>
+        <ul className="desktop nav__links">
           <li>
               <CustomLink to = '/simpleread/explore'>Explore</CustomLink>
           </li>
