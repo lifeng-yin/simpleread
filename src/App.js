@@ -1,7 +1,5 @@
 import React from "react";
 
-//import bootstrap icons
-import "bootstrap-icons/font/bootstrap-icons.css";
 
 //import react router
 import { Route, Routes } from "react-router-dom";
