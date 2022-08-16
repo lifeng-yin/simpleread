@@ -1,5 +1,6 @@
 import React from 'react'
 import logolarge from '../logos/SIMPLEREAD_LOGO.png'
+import {BsBook, BsListStars} from "react-icons/bs"
 
 import { useNavigate } from 'react-router-dom'
 
@@ -14,7 +15,7 @@ const Home = () => {
         
         <button className = 'center' style = {{marginTop: '2%'}}>
           {'Review A Book '}
-          <i class="bi bi-book"></i>
+          <BsBook />
         </button>
         
         <button className = 'center' style = {{marginTop: '20px'}} onClick = {
@@ -22,7 +23,7 @@ const Home = () => {
           navigate('/simpleread/explore');
         }}>
           {'Read Some Reviews '}
-          <i class="bi bi-list-stars"></i>
+          <BsListStars />
         </button>
     </>
   )

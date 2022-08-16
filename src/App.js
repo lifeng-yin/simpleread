@@ -1,32 +1,29 @@
-import React from 'react'
+import React from "react";
 
-//import bootstrap icons
-import "bootstrap-icons/font/bootstrap-icons.css";
 
 //import react router
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes } from "react-router-dom";
 
-import About from './pages/About.js'
-import Home from './pages/Home.js'
-import Reviews from './pages/Reviews.js'
-import AddReview from './pages/AddReview.js'
-import Navbar from './Navbar.js'
+const About = React.lazy(() => import("./pages/About.js"));
+const Home = React.lazy(() => import("./pages/Home.js"));
+const Reviews = React.lazy(() => import("./pages/Reviews.js"));
+const AddReview = React.lazy(() => import("./pages/AddReview.js"));
+const Navbar = React.lazy(() => import("./Navbar.js"));
 
 const App = () => {
-
   return (
     <>
-    <Navbar/>
-
-    <Routes>
-      <Route path = '/simpleread/' element = {<Home/>}/>
-      <Route path = '/simpleread/explore' element = {<Reviews/>}/>
-      <Route path = '/simpleread/add' element = {<AddReview/>}/>
-      <Route path = '/simpleread/about' element = {<About/>}/>
-    </Routes>
-    
+      <Navbar />
+      <React.Suspense fallback={<div className="lazy-preloader"></div>}>
+        <Routes>
+          <Route path="/simpleread/" element={<Home />} />
+          <Route path="/simpleread/explore" element={<Reviews />} />
+          <Route path="/simpleread/add" element={<AddReview />} />
+          <Route path="/simpleread/about" element={<About />} />
+        </Routes>
+      </React.Suspense>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
