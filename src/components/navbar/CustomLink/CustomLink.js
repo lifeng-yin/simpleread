@@ -7,11 +7,11 @@ function CustomLink({ to, children, ...props }) {
     const isActive = useMatch({ path: resolvedPath.pathname, end: true })
   
     return (
-      <li className={isActive ? "active" : ""}>
+      <ul className={isActive ? "active" : ""}>
         <Link to={to} {...props}>
           {children}
         </Link>
-      </li>
+      </ul>
     )
 }  
 export default CustomLink;

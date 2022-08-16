@@ -8,25 +8,23 @@ const Navbar = () => {
     <nav>
 
         <ul className="nav__logo">
-          <li>
-            <CustomLink to = '/simpleread/'>
-              <img src = {logolarge} alt = 'logo' style = {{width: '15%', minWidth: '70px', listStyleType: 'none'}}></img>
-            </CustomLink>
-          </li>
+          <CustomLink to = '/simpleread/'>
+            <img src = {logolarge} alt = 'logo' style = {{width: '15%', minWidth: '70px', listStyleType: 'none'}}></img>
+          </CustomLink>
         </ul>
 
         <ul className="desktop nav__links">
-          <li>
-              <CustomLink to = '/simpleread/explore'>Explore</CustomLink>
-          </li>
+          
+          <CustomLink to = '/simpleread/explore'>Explore</CustomLink>
+          
           <p className = 'navspacer'>{' | '}</p>
-          <li>
-              <CustomLink to = '/simpleread/add'>Add Review</CustomLink>
-          </li>
+          
+          <CustomLink to = '/simpleread/add'>Add Review</CustomLink>
+          
           <p className = 'navspacer'>{' | '}</p>
-          <li>
-              <CustomLink to = '/simpleread/about'>About</CustomLink>
-          </li>
+          
+          <CustomLink to = '/simpleread/about'>About</CustomLink>
+          
         </ul>
         
         <Hamburger />
