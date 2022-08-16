@@ -1,0 +1,14 @@
+
+@mixin respond-to($media) {
+    @if $media == desktop {
+        @media only screen and (min-width: 37em) and (orientation: portrait), (min-height: 37em) and (orientation: landscape) { @content; }
+    }
+    
+    @else if $media == mobile {
+        @media only screen and (max-width: 37em) and (orientation: portrait), (max-height: 37em) and (orientation: landscape) { @content; }
+    }
+    
+    @else if $media == landscape {
+        @media only screen and (orientation: landscape) {@content;}
+    }
+}
