@@ -1,13 +1,20 @@
+@use "./_media.scss" as *;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 
 $primary: #A2B0CF;
 $secondary: #506491;
 $text: #fff;
 
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+    overflow:auto;
 }
 
 body {
@@ -16,6 +23,9 @@ body {
   margin: 0;
   padding: 0;
   font-weight: bold;
+  height: 100%;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .lazy-preloader {
@@ -47,35 +57,28 @@ body {
 }
 
 .desktop {
-  display: none;
+  @include respond-to(mobile) {
+      
+    display: none;
+  };
+  
+  @include respond-to(desktop) {
+    display: initial;
+  }
+  
 }
 
 .mobile {
-  display: initial;
-}
-
-
-// Desktop
-@media 
-  only screen and (min-width: 37em) and (orientation: portrait), 
-  (min-height: 37em) and (orientation: landscape)
-{
-   
-  .desktop {
+  @include respond-to(mobile){
     display: initial;
   }
-
-  .mobile {
+  
+  @include respond-to(desktop) {
     display: none;
   }
-  
-  nav ul, nav ul.nav__links {
-    list-style: none;
-    margin: 0;
-    display: flex;
-    gap: 1rem;
-  }
 }
+
+
 
 .center {
   display: block;
@@ -129,7 +132,7 @@ button:active, .btn:active {
 
 .title {
   text-align: center;
-  font-size: max(7vw, 4em, 4rem);
+  font-size: min(15vw, 4em, 4rem);
 }
 
 nav {
@@ -142,7 +145,17 @@ nav {
   transition: background-color 0.3s ease;
   position: sticky;
   top: 0;
+  width: 100%;
   
+}
+
+nav ul, nav ul.nav__links {
+  @include respond-to(desktop){
+    list-style: none;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+  }
 }
 
 nav:hover {
@@ -152,6 +165,7 @@ nav:hover {
 
 .nav__links {
   flex: 1 0 auto;
+  justify-content: flex-end;
 }
 
 .nav__logo {
