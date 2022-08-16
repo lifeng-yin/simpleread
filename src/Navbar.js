@@ -1,13 +1,13 @@
 import React from 'react'
 import logolarge from './logos/SIMPLEREAD_LOGO.png'
-
-import { Link, useMatch, useResolvedPath } from 'react-router-dom'
+import Hamburger from "./components/navbar/Hamburger/Hamburger.js"
+import CustomLink from "./components/navbar/CustomLink/CustomLink.js"
 
 const Navbar = () => {
   return (
     <nav>
 
-        <ul>
+        <ul className="nav__logo">
           <li>
             <CustomLink to = '/simpleread/'>
               <img src = {logolarge} alt = 'logo' style = {{width: '15%', minWidth: '70px', listStyleType: 'none'}}></img>
@@ -28,22 +28,12 @@ const Navbar = () => {
               <CustomLink to = '/simpleread/about'>About</CustomLink>
           </li>
         </ul>
+        
+        <Hamburger />
 
     </nav>
   )
 }
 
-function CustomLink({ to, children, ...props }) {
-    const resolvedPath = useResolvedPath(to)
-    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
-  
-    return (
-      <li className={isActive ? "active" : ""}>
-        <Link to={to} {...props}>
-          {children}
-        </Link>
-      </li>
-    )
-  }  
 
 export default Navbar

@@ -1,1 +1,32 @@
-.Hamburger {}
+@use "src/styles";
+
+.Hamburger {
+    button {
+        position: relative;
+        z-index: 10;
+        svg {
+            display: block;
+        }
+    }
+    
+    .hamburger__pages {
+        &--false {
+            display: none;
+        }
+        &--true {
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            padding: 1rem;
+            background-color: styles.$text;
+            
+            ul {
+                list-style: none;
+                text-align: center;
+            }
+        }
+    }
+}

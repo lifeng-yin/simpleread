@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-
 $primary: #A2B0CF;
 $secondary: #506491;
 $text: #fff;
@@ -45,6 +44,37 @@ body {
     100% {
     transform: rotate(360deg);
     }
+}
+
+.desktop {
+  display: none;
+}
+
+.mobile {
+  display: initial;
+}
+
+
+// Desktop
+@media 
+  only screen and (min-width: 37em) and (orientation: portrait), 
+  (min-height: 37em) and (orientation: landscape)
+{
+   
+  .desktop {
+    display: initial;
+  }
+
+  .mobile {
+    display: none;
+  }
+  
+  nav ul, nav ul.nav__links {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+  }
 }
 
 .center {
@@ -110,17 +140,22 @@ nav {
   justify-content: space-between;
   align-items: center;
   transition: background-color 0.3s ease;
+  position: sticky;
+  top: 0;
+  
 }
 
 nav:hover {
   background-color: rgb(256, 256, 256, 1);
 }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  display: flex;
-  gap: 1rem;
+
+.nav__links {
+  flex: 1 0 auto;
+}
+
+.nav__logo {
+  flex: 0 1 auto;
 }
 
 nav a, .navlink {
