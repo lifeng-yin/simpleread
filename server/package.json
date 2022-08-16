@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon start",
-    "server": "nodemon ./server.js",
+    "start": "nodemon ./server.js",
     "db": "node ./db/conn.js",
     "record": "node ./routes/record.js"
   },
