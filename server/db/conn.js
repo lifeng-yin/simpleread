@@ -14,7 +14,7 @@ module.exports = {
     client.connect(function (err, db) {
       if (db)
       {
-        _db = db.db("employees");
+        _db = db.db("users");
         console.log("Successfully connected to MongoDB."); 
       }
       return callback(err);
