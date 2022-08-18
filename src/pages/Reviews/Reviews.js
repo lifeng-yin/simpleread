@@ -22,12 +22,12 @@ const Record = (props) => (
 );
  
 export default function RecordList() {
- const [records, setRecords] = useDatabase("/record");
+ const [records, setRecords] = useDatabase("/review");
  
  
  // This method will delete a record
  async function deleteRecord(id) {
-   await remove(id)
+   await remove(id, "/review")
  
    const newRecords = records.filter((el) => el._id !== id);
    setRecords(newRecords);

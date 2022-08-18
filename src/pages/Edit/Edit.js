@@ -17,7 +17,7 @@ const Edit = () => {
     useEffect(() => {
         async function fetchData() {
             const id = params.id.toString();
-            const response = await fetch(`http://localhost:5000/record/${params.id.toString()}`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER_URL || "http://localhost:5000"}/review/${params.id.toString()}`);
         
             if (!response.ok) {
                 const message = `An error has occurred: ${response.statusText}`;
@@ -49,7 +49,7 @@ const Edit = () => {
             position: form.position,
             level: form.level,
         };
-        create(editedPerson, `/update/${params.id}`)
+        create(editedPerson, `/review/update/${params.id}`)
         navigate("/simpleread/");
      }}>
        <div className="form-group">

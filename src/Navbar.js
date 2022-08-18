@@ -25,6 +25,10 @@ const Navbar = () => {
           
           <CustomLink to = '/simpleread/about'>About</CustomLink>
           
+          <p className = 'navspacer'>{' | '}</p>
+          
+          <CustomLink to = '/simpleread/signin'><button className="sign-in__page-button">Sign in</button></CustomLink>
+          
         </ul>
         
         <Hamburger />

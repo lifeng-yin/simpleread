@@ -23,6 +23,9 @@ const Hamburger = () => {
                     <li>
                         <CustomLink to = '/simpleread/about' onClick={() => setMenuMode(false)}>About</CustomLink>
                     </li>
+                    <li>
+                        <CustomLink to = '/simpleread/signin' onClick={() => setMenuMode(false)}><button className="sign-in__page-button">Sign in</button></CustomLink>
+                    </li>
                 </ul>
             </div>
         </div>
