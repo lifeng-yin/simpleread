@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router";
-import { useForm, create } from "../../utilities/database.js";
+import { create, useForm } from "../../utilities/database.js";
 import "./AddReview.scss"
  
 export default function Create() {
- const [form, setForm, updateForm] = useForm({
-   name: "",
-   position: "",
-   level: "",
- });
+    const [form, setForm, updateForm] = useForm({
+        name: "",
+        position: "",
+        level: ""
+    })
  const navigate = useNavigate();
  
  
@@ -18,7 +18,7 @@ export default function Create() {
      <h3>Create New Record</h3>
      <form onSubmit={(e) => {
         e.preventDefault();
-        create(form, "/record/add")
+        create(form, "/review/add")
         setForm({ name: "", position: "", level: "" });
         navigate("/simpleread/");
      }}>

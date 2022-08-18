@@ -13,7 +13,7 @@ const ObjectId = require("mongodb").ObjectId;
  
  
 // This section will help you get a list of all the users.
-recordRoutes.route("/record").get(function (req, res) {
+recordRoutes.route("/user").get(function (req, res) {
  let db_connect = dbo.getDb("users");
  db_connect
    .collection("users")
@@ -25,7 +25,7 @@ recordRoutes.route("/record").get(function (req, res) {
 });
  
 // This section will help you get a single record by id
-recordRoutes.route("/record/:id").get(function (req, res) {
+recordRoutes.route("/user/:id").get(function (req, res) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  db_connect
@@ -37,29 +37,21 @@ recordRoutes.route("/record/:id").get(function (req, res) {
 });
  
 // This section will help you create a new record.
-recordRoutes.route("/record/add").post(function (req, response) {
+recordRoutes.route("/user/add").post(function (req, response) {
  let db_connect = dbo.getDb();
- let myobj = {
-   name: req.body.name,
-   position: req.body.position,
-   level: req.body.level,
- };
- db_connect.collection("users").insertOne(myobj, function (err, res) {
+ db_connect.collection("users").insertOne(req.body, function (err, res) {
    if (err) throw err;
    response.json(res);
  });
+ console.log("1 document added")
 });
  
 // This section will help you update a record by id.
-recordRoutes.route("/update/:id").post(function (req, response) {
+recordRoutes.route("/user/update/:id").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  let newvalues = {
-   $set: {
-     name: req.body.name,
-     position: req.body.position,
-     level: req.body.level,
-   },
+   $set: req.body,
  };
  db_connect
    .collection("users")
@@ -71,7 +63,7 @@ recordRoutes.route("/update/:id").post(function (req, response) {
 });
  
 // This section will help you delete a record
-recordRoutes.route("/:id").delete((req, response) => {
+recordRoutes.route("/user/:id").delete((req, response) => {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
  db_connect.collection("users").deleteOne(myquery, function (err, obj) {
