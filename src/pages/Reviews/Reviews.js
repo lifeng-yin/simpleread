@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { remove } from "../../utilities/database.js"
+import "./Reviews.scss"
  
 const Record = (props) => (
  <tr>
@@ -44,9 +46,7 @@ export default function RecordList() {
  
  // This method will delete a record
  async function deleteRecord(id) {
-   await fetch(`http://localhost:5000/${id}`, {
-     method: "DELETE"
-   });
+   await remove(id)
  
    const newRecords = records.filter((el) => el._id !== id);
    setRecords(newRecords);

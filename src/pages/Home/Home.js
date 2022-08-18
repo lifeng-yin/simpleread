@@ -1,6 +1,7 @@
 import React from 'react'
-import logolarge from '../logos/SIMPLEREAD_LOGO.png'
+import logolarge from '../../logos/SIMPLEREAD_LOGO.png'
 import {BsBook, BsListStars} from "react-icons/bs"
+import "./Home.scss"
 
 import { useNavigate } from 'react-router-dom'
 
