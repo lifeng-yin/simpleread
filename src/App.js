@@ -4,11 +4,12 @@ import React from "react";
 //import react router
 import { Route, Routes } from "react-router-dom";
 
-const About = React.lazy(() => import("./pages/About.js"));
-const Home = React.lazy(() => import("./pages/Home.js"));
-const Reviews = React.lazy(() => import("./pages/Reviews.js"));
-const AddReview = React.lazy(() => import("./pages/AddReview.js"));
+const About = React.lazy(() => import("./pages/About/About.js"));
+const Home = React.lazy(() => import("./pages/Home/Home.js"));
+const Reviews = React.lazy(() => import("./pages/Reviews/Reviews.js"));
+const AddReview = React.lazy(() => import("./pages/AddReview/AddReview.js"));
 const Navbar = React.lazy(() => import("./Navbar.js"));
+
 
 const App = () => {
   return (

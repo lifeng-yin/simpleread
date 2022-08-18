@@ -1,49 +1,27 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { useForm, create } from "../../utilities/database.js";
+import "./AddReview.scss"
  
 export default function Create() {
- const [form, setForm] = useState({
+ const [form, setForm, updateForm] = useForm({
    name: "",
    position: "",
    level: "",
  });
  const navigate = useNavigate();
  
- // These methods will update the state properties.
- function updateForm(value) {
-   return setForm((prev) => {
-     return { ...prev, ...value };
-   });
- }
- 
- // This function will handle the submission.
- async function onSubmit(e) {
-   e.preventDefault();
- 
-   // When a post request is sent to the create url, we'll add a new record to the database.
-   const newPerson = { ...form };
- 
-   await fetch((process.env.REACT_APP_SERVER_URL || "http://localhost:5000") + "/record/add", {
-     method: "POST",
-     headers: {
-       "Content-Type": "application/json",
-     },
-     body: JSON.stringify(newPerson),
-   })
-   .catch(error => {
-     window.alert(error);
-     return;
-   });
- 
-   setForm({ name: "", position: "", level: "" });
-   navigate("/simpleread/");
- }
  
  // This following section will display the form that takes the input from the user.
  return (
    <div>
      <h3>Create New Record</h3>
-     <form onSubmit={onSubmit}>
+     <form onSubmit={(e) => {
+        e.preventDefault();
+        create(form, "/record/add")
+        setForm({ name: "", position: "", level: "" });
+        navigate("/simpleread/");
+     }}>
        <div className="form-group">
          <label htmlFor="name">Name</label>
          <input
