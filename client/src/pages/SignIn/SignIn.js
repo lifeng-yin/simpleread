@@ -12,7 +12,7 @@ const SignIn = () => {
         <SignUpForm 
                 onSubmit={(e, form, setForm) => {
                     e.preventDefault();
-                    create(form, "/user/add")
+                    create(form, "/user/register")
                     setForm({ name: "", position: "", level: "" });
                     navigate("/simpleread/");}
                 }
