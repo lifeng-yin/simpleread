@@ -18,30 +18,6 @@ const jwt = require("jsonwebtoken");
 const saltRounds = 10;
 require("dotenv").config({ path: "../config.env" });
  
-// This section will help you get a list of all the users.
-recordRoutes.route("/user").get(function (req, res) {
- let db_connect = dbo.getDb("users");
- db_connect
-   .collection("users")
-   .find({})
-   .toArray(function (err, result) {
-     if (err) throw err;
-     res.json(result);
-   });
-});
- 
-// This section will help you get a single record by id
-recordRoutes.route("/user/:id").get(function (req, res) {
- let db_connect = dbo.getDb();
- let myquery = { _id: ObjectId(req.params.id) };
- db_connect
-   .collection("users")
-   .findOne(myquery, function (err, result) {
-     if (err) throw err;
-     res.json(result);
-   });
-});
- 
 // This section will help you create a new record.
 recordRoutes.route("/user/register").post(async function (req, response) {
  const user = req.body
@@ -107,32 +83,29 @@ recordRoutes.route("/user/login").post((req, res) => {
         })
     })
 })
- 
-// This section will help you update a record by id.
-recordRoutes.route("/user/update/:id").post(function (req, response) {
- let db_connect = dbo.getDb();
- let myquery = { _id: ObjectId(req.params.id) };
- let newvalues = {
-   $set: req.body,
- };
- db_connect
-   .collection("users")
-   .updateOne(myquery, newvalues, function (err, res) {
-     if (err) throw err;
-     console.log("1 document updated");
-     response.json(res);
-   });
-});
- 
-// This section will help you delete a record
-recordRoutes.route("/user/:id").delete((req, response) => {
- let db_connect = dbo.getDb();
- let myquery = { _id: ObjectId(req.params.id) };
- db_connect.collection("users").deleteOne(myquery, function (err, obj) {
-   if (err) throw err;
-   console.log("1 document deleted");
-   response.json(obj);
- });
-});
- 
+
+function verifyJWT(req, res, next) {
+    //get the token (and remove the "Bearer: " part)
+    const token = req.headers["x-access-token"]?.split(" ")[1]
+    
+    if (token) {
+        jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+            if (err) return res.json({
+                isLoggedIn: false,
+                message: "Failed to authenticate"
+            })
+            req.user = {}
+            req.user.id = decoded.id
+            req.user.username = decoded.username
+            next()
+        })
+    } else {
+        res.json({message: "Incorrect token given", isLoggedIn: false})
+    }
+}
+
+recordRoutes.route("/user/getUsername").get(verifyJWT, (req, res) => {
+    res.json({isLoggedIn: true, username: req.user.username})
+})
+
 module.exports = recordRoutes;
