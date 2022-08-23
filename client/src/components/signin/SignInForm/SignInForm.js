@@ -2,37 +2,35 @@ import React from 'react';
 import { create, useForm } from "../../../utilities/database.js"
 import Field from "../Field/Field.js";
 import PropTypes from 'prop-types';
-import './SignUpForm.scss';
+import './SignInForm.scss';
 
-const SignUpForm = (props) => {
+const SignInForm = (props) => {
     const [form, setForm, updateForm] = useForm({
-        email: "",
         username: "",
         password: ""
     })
     
   return (
-    <form className="SignUpForm" data-testid="SignUpForm" onSubmit={(e) => props.onSubmit(e, form, setForm)}>
-        <Field name="Username" form={form} onChange={props.onChange} updateForm={updateForm}/>
-        <Field name="Email" form={form} onChange={props.onChange} updateForm={updateForm} type="email"/>
+    <form className="SignInForm" data-testid="SignInForm" onSubmit={(e) => props.onSubmit(e, form, setForm)}>
+        <Field name="Username" label="Username or email" form={form} onChange={props.onChange} updateForm={updateForm}/>
         <Field name="Password" form={form} onChange={props.onChange} updateForm={updateForm} type="password"/>
         
         <div className="form-group">
             <input
             type="submit"
-            value="Sign Up"
+            value="Sign In"
             className="btn btn-primary"
             />
         </div>
     </form>
 );}
 
-SignUpForm.propTypes = {
+SignInForm.propTypes = {
     onSubmit: PropTypes.func,
     onChange: PropTypes.func
 };
 
-SignUpForm.defaultProps = {
+SignInForm.defaultProps = {
     onSubmit: (e, form, setForm) => create(form, "/user"),
     onChange: (e, updateForm, field) => {
         let obj = {}
@@ -41,4 +39,4 @@ SignUpForm.defaultProps = {
     }
 };
 
-export default SignUpForm;
+export default SignInForm;

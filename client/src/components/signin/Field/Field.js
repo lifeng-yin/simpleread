@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './SignUpField.scss';
+import './Field.scss';
 
-const SignUpField = (props) => (
+const Field = (props) => (
   <div className="form-group">
-        <label htmlFor={props.name.toString().toLowerCase()}>{props.name}</label>
+        <label htmlFor={props.name.toString().toLowerCase()}>{props.name || props.label}</label>
         <input
         className="form-control"
-        id={props.name.toString().toLowerCase()}
+        // id={props.name.toString().toLowerCase()}
         value={props.form[props.name.toString().toLowerCase()]}
         type={props.type || "text"}
         required
@@ -16,14 +16,15 @@ const SignUpField = (props) => (
     </div>
 );
 
-SignUpField.propTypes = {
+Field.propTypes = {
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     updateForm: PropTypes.func.isRequired,
     form: PropTypes.object.isRequired,
-    type: PropTypes.string
+    type: PropTypes.string,
+    label: PropTypes.string
 };
 
-SignUpField.defaultProps = {};
+Field.defaultProps = {};
 
-export default SignUpField;
+export default Field;

@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+if grep -R --exclude-dir='.?*' "// TEMP" .
+then
+exit 1
+fi
