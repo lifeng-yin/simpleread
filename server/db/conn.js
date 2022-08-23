@@ -1,27 +1,17 @@
-const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose")
 const dotenv = require('dotenv').config()
 
-const uri = 'mongodb+srv://simpleread-1:simpleread1@cluster0.bdmmz.mongodb.net/?retryWrites=true&w=majority'
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const uri = 'mongodb+srv://simpleread-1:simpleread1@cluster0.bdmmz.mongodb.net/simpleread?retryWrites=true&w=majority'
  
-var _db;
  
 module.exports = {
   connectToServer: function (callback) {
-    client.connect(function (err, db) {
-      if (db)
-      {
-        _db = db.db("simpleread");
-        console.log("Successfully connected to MongoDB."); 
-      }
+    mongoose.connect(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }).then (() => { console.log("Successfully connected to MongoDB.") },
+    (err) => {
       return callback(err);
-         });
-  },
- 
-  getDb: function () {
-    return _db;
+    });
   },
 };

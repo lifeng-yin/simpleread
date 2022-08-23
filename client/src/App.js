@@ -1,5 +1,8 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
+import TokenContext from "./components/signin/TokenContext/TokenContext"
+
+import {getToken} from "./utilities/database"
 
 //import react router
 import { Route, Routes } from "react-router-dom";
@@ -14,8 +17,19 @@ const Navbar = React.lazy(() => import("./Navbar.js"));
 
 
 const App = () => {
+    const [token, setToken] = useState("")
+    useEffect(() => {
+        async function doTokenThing() {
+            let response = await getToken()
+            console.log(response)
+            setToken(response?.token)
+        }
+        
+        doTokenThing()
+    }, [])
+    
   return (
-    <>
+    <TokenContext.Provider value={{token, setToken}} >
       <Navbar />
       <React.Suspense fallback={<div className="lazy-preloader"></div>}>
         <Routes>
@@ -27,7 +41,7 @@ const App = () => {
           <Route path="/simpleread/signin" element={<SignIn />} />
         </Routes>
       </React.Suspense>
-    </>
+    </TokenContext.Provider>
   );
 };
 

@@ -1,4 +1,47 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
+import TokenContext from "../components/signin/TokenContext/TokenContext"
+
+async function useFetch(path, payload={}) {
+    const {token, setToken} = useContext(TokenContext)
+    
+    async function fetchContent() {
+        return await fetch((process.env.REACT_APP_SERVER_URL || "http://localhost:5000") + path, {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json",
+            "x-access-token": token
+            },
+            body: payload
+        })
+        .then((res) => res.json())
+    }
+    
+    let data = await fetchContent()
+    
+    if (!data.isLoggedIn) {
+        let newToken = await getToken()
+        
+        if (!newToken.isLoggedIn) return {failed: true, message: newToken.message}
+        else {
+            setToken(newToken.token)
+            return await fetchContent()
+        }
+    }
+    else {
+        return data
+    }
+}
+
+async function getToken() {
+    return await fetch((process.env.REACT_APP_SERVER_URL || "http://localhost:5000") + "/user/getToken", {
+            method: "GET",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            credentials: "include"
+        })
+        .then((res) => res.json())
+}
 
 function useDatabase(path) {
     const [local, setLocal] = useState([])
@@ -39,17 +82,21 @@ function useForm(initialState) {
 }
 
  // This function will handle the submission.
-async function create(content, path) {
+async function create(content, path, credentials="same-origin") {
 
     // When a post request is sent to the create url, we'll add a new record to the database.
     const newPerson = { ...content };
 
-    await fetch((process.env.REACT_APP_SERVER_URL || "http://localhost:5000") + path, {
+    return await fetch((process.env.REACT_APP_SERVER_URL || "http://localhost:5000") + path, {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
         },
+        credentials: credentials,
         body: JSON.stringify(newPerson),
+    })
+    .then(response => {
+        return response.json()
     })
     .catch(error => {
         window.alert(error);
@@ -63,4 +110,6 @@ async function remove(id, path) {
    });
 }
 
-export {create, useForm, remove, useDatabase}
+
+
+export {create, useForm, remove, useDatabase, useFetch, getToken}

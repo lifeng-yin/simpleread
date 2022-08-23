@@ -1,10 +1,13 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const cookies = require("cookie-parser")
 require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 5000;
-app.use(cors());
+
+app.use(cors({origin:true,credentials: true}));
 app.use(express.json());
+app.use(cookies())
 app.use(require("./routes/user"));
 app.use(require("./routes/reviews"));
 const dbo = require("./db/conn");
