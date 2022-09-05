@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { create, useForm } from "../../../utilities/database.js"
 import Field from "../Field/Field.js";
 import PropTypes from 'prop-types';
+import TokenContext from '../TokenContext/TokenContext.js';
 import './SignUpForm.scss';
 
 const SignUpForm = (props) => {
@@ -10,6 +11,7 @@ const SignUpForm = (props) => {
         username: "",
         password: ""
     })
+    const {user} = useContext(TokenContext)
     
   return (
     <form className="SignUpForm" data-testid="SignUpForm" onSubmit={(e) => props.onSubmit(e, form, setForm)}>
@@ -22,6 +24,7 @@ const SignUpForm = (props) => {
             type="submit"
             value="Sign Up"
             className="btn btn-primary"
+            disabled={user ? true : false}
             />
         </div>
     </form>

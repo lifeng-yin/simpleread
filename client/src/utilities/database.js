@@ -1,17 +1,18 @@
 import {useState, useEffect, useContext} from "react";
 import TokenContext from "../components/signin/TokenContext/TokenContext"
 
-async function useFetch(path, payload={}) {
+async function useFetch(path, payload=undefined) {
     const {token, setToken} = useContext(TokenContext)
     
     async function fetchContent() {
         return await fetch((process.env.REACT_APP_SERVER_URL || "http://localhost:5000") + path, {
-            method: "GET",
+            method: payload ? "POST" : "GET",
             headers: {
             "Content-Type": "application/json",
             "x-access-token": token
             },
-            body: payload
+            // only does payload if payload exists
+            ...(payload && {body: payload})
         })
         .then((res) => res.json())
     }

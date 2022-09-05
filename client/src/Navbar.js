@@ -1,11 +1,10 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import logolarge from './logos/SIMPLEREAD_LOGO.png'
 import Hamburger from "./components/navbar/Hamburger/Hamburger.js"
 import CustomLink from "./components/navbar/CustomLink/CustomLink.js"
-import TokenContext from "./components/signin/TokenContext/TokenContext"
+import AccountButton from './components/navbar/AccountButton/AccountButton'
 
 const Navbar = () => {
-    const {token} = useContext(TokenContext)
     
   return (
     <nav>
@@ -30,7 +29,7 @@ const Navbar = () => {
           
           <p className = 'navspacer'>{' | '}</p>
           
-          <CustomLink to = '/simpleread/signin'><button className="sign-in__page-button" disabled={token ? true : false}>Sign in</button></CustomLink>
+          <AccountButton />
           
         </ul>
         

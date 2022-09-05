@@ -8,14 +8,19 @@ import './SignIn.scss';
 
 const SignIn = () => {
     const navigate = useNavigate()
-    const {setToken} = useContext(TokenContext)
+    const {setToken, setUser} = useContext(TokenContext)
     
     return <div>
         <h3>Create a new account</h3>
         <SignUpForm 
                 onSubmit={(e, form, setForm) => {
                     e.preventDefault();
-                    create(form, "/user/register")
+                    create(form, "/user/register", "include").then(res => {
+                        if (res.isLoggedIn) {
+                            setToken(res?.token)
+                            setUser({username: res?.user?.username})
+                        }
+                    })
                     setForm({ email: "", username: "", password: "" });
                     navigate("/simpleread/");}
                 }
@@ -31,6 +36,7 @@ const SignIn = () => {
                     create(form, "/user/login", "include").then(res => {
                         if (res.isLoggedIn) {
                             setToken(res?.token)
+                            setUser({username: res?.user?.username})
                         }
                     })
                     setForm({ username: "", password: "" });

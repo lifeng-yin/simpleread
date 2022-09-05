@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {FiMenu, FiX} from "react-icons/fi"
 import './Hamburger.scss';
+import AccountButton from '../AccountButton/AccountButton';
 
 import CustomLink from "../CustomLink/CustomLink.js"
 
@@ -24,7 +25,7 @@ const Hamburger = () => {
                         <CustomLink to = '/simpleread/about' onClick={() => setMenuMode(false)}>About</CustomLink>
                     </li>
                     <li>
-                        <CustomLink to = '/simpleread/signin' onClick={() => setMenuMode(false)}><button className="sign-in__page-button">Sign in</button></CustomLink>
+                        <AccountButton onClick={() => setMenuMode(false)} />
                     </li>
                 </ul>
             </div>

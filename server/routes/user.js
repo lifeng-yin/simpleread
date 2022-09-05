@@ -18,14 +18,14 @@ const saltRounds = 10;
 require("dotenv").config({ path: "../config.env" });
 
 // This section will help you create a new record.
-recordRoutes.route("/user/register").post(async function (req, response) {
+recordRoutes.route("/user/register").post(async function (req, res) {
   const user = req.body;
 
   // check whether user already exists
   if (await User.findOne({ username: user.username })) {
-    response.json({ message: "Username already exists" });
+    res.json({ message: "Username already exists" });
   } else if (await User.findOne({ email: user.email })) {
-    response.json({ message: "Email already exists" });
+    res.json({ message: "Email already exists" });
   } else {
     user.password = await bcrypt.hash(req.body.password, saltRounds);
 
@@ -36,8 +36,45 @@ recordRoutes.route("/user/register").post(async function (req, response) {
     });
 
     dbUser.save();
+
+    // generate access token to access api stuff
+    let accessToken = await generateJWT({
+      id: dbUser._id,
+      username: dbUser.username,
+    });
+
+    // generate refresh token to refresh access token when it expires
+    let refreshToken = await generateJWT(
+      {
+        id: dbUser._id,
+        username: dbUser.username,
+      },
+      (options = { expiresIn: 7 * 24 * 60 * 60 * 1000 }),
+      (secret = process.env.REFRESH_SECRET)
+    );
+    // put refresh token in httpOnly cookie and return access token to put into memory
+
+    res.setHeader("Access-Control-Allow-Origin", process.env.CLIENT_URL);
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    res.cookie("refreshToken", refreshToken, {
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+    });
+    res.json({
+      message: "Success",
+      token: "Bearer " + accessToken,
+      user: {
+        username: dbUser.username,
+      },
+      isLoggedIn: true,
+    });
+
     console.log("1 user added");
-    response.json({ message: "Success" });
+    return res
   }
 });
 
@@ -101,6 +138,9 @@ recordRoutes.route("/user/login").post((req, res) => {
           res.json({
             message: "Success",
             token: "Bearer " + accessToken,
+            user: {
+              username: dbUser.username,
+            },
             isLoggedIn: true,
           });
           //   console.log(res);
@@ -170,7 +210,7 @@ recordRoutes.route("/user/getToken").get(
       token: "Bearer " + accessToken,
       isLoggedIn: true,
     });
-    console.log(res);
+    console.log("token refreshed");
     return res;
   }
 );
