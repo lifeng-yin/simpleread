@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 
 import TokenContext from "./components/signin/TokenContext/TokenContext"
 
-import {getToken, useFetch} from "./utilities/database"
+import {getToken} from "./utilities/database"
 
 //import react router
 import { Route, Routes } from "react-router-dom";
@@ -25,7 +25,7 @@ const App = () => {
             let response = await getToken()
             setToken(response?.token)
             setUser(response?.user)
-        }
+          }
         
         doTokenThing()
     }, [])

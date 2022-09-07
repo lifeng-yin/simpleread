@@ -208,6 +208,9 @@ recordRoutes.route("/user/getToken").get(
     res.json({
       message: "Success",
       token: "Bearer " + accessToken,
+      user: {
+        username: req.user.username
+      },
       isLoggedIn: true,
     });
     console.log("token refreshed");
