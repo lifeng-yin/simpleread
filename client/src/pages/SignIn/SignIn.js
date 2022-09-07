@@ -10,8 +10,7 @@ const SignIn = () => {
     const navigate = useNavigate()
     const {setToken, setUser} = useContext(TokenContext)
     
-    return <div>
-        <h3>Create a new account</h3>
+    return <div className="SignIn">
         <SignUpForm 
                 onSubmit={(e, form, setForm) => {
                     e.preventDefault();

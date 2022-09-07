@@ -11,4 +11,8 @@
     @else if $media == landscape {
         @media only screen and (orientation: landscape) {@content;}
     }
+
+    @else {
+        @media ($media) {@content}
+    }
 }

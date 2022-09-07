@@ -14,10 +14,11 @@ const SignInForm = (props) => {
     
   return (
     <form className="SignInForm" data-testid="SignInForm" onSubmit={(e) => props.onSubmit(e, form, setForm)}>
+        <h3>Sign In</h3>
         <Field name="Username" label="Username or email" form={form} onChange={props.onChange} updateForm={updateForm}/>
         <Field name="Password" form={form} onChange={props.onChange} updateForm={updateForm} type="password"/>
         
-        <div className="form-group">
+        <div className="form-group cta">
             <input
             type="submit"
             value="Sign In"

@@ -1,1 +1,8 @@
-.SignInField {}
+.Field {
+    input {
+        border-radius: 999999999999px;
+        border: 1rem solid transparent
+    }
+    
+    margin: 5% 0;
+}

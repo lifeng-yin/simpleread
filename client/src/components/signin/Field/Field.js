@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import './Field.scss';
 
 const Field = (props) => (
-  <div className="form-group">
-        <label htmlFor={props.name.toString().toLowerCase()}>{props.name || props.label}</label>
+  <div className="form-group Field">
+        {/* <label htmlFor={props.name.toString().toLowerCase()}>{props.name || props.label}</label> */}
         <input
         className="form-control"
         // id={props.name.toString().toLowerCase()}
@@ -12,6 +12,7 @@ const Field = (props) => (
         type={props.type || "text"}
         required
         onChange={(e) => props.onChange(e, props.updateForm, props.name.toString().toLowerCase())}
+        placeholder={props.name || props.label}
         />
     </div>
 );

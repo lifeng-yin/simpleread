@@ -3,7 +3,7 @@ import { create, useForm } from "../../../utilities/database.js"
 import Field from "../Field/Field.js";
 import PropTypes from 'prop-types';
 import TokenContext from '../TokenContext/TokenContext.js';
-import './SignUpForm.scss';
+import '../SignInForm/SignInForm.scss';
 
 const SignUpForm = (props) => {
     const [form, setForm, updateForm] = useForm({
@@ -15,11 +15,12 @@ const SignUpForm = (props) => {
     
   return (
     <form className="SignUpForm" data-testid="SignUpForm" onSubmit={(e) => props.onSubmit(e, form, setForm)}>
+        <h3>Sign Up</h3>
         <Field name="Username" form={form} onChange={props.onChange} updateForm={updateForm}/>
         <Field name="Email" form={form} onChange={props.onChange} updateForm={updateForm} type="email"/>
         <Field name="Password" form={form} onChange={props.onChange} updateForm={updateForm} type="password"/>
         
-        <div className="form-group">
+        <div className="form-group cta">
             <input
             type="submit"
             value="Sign Up"
