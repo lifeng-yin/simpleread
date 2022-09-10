@@ -43,6 +43,7 @@ const Edit = () => {
     
   return (
   <div className="Edit" data-testid="Edit">
+    <h1>Editing {form.name}</h1>
      <form onSubmit={(e) => {
         e.preventDefault();
         const editedPerson = {
@@ -54,7 +55,7 @@ const Edit = () => {
         navigate("/simpleread/");
      }}>
        <div className="form-group">
-         <label htmlFor="name">Name</label>
+         <label htmlFor="name">Name</label><br></br>
          <input
            type="text"
            className="form-control"
@@ -64,7 +65,7 @@ const Edit = () => {
          />
        </div>
        <div className="form-group">
-         <label htmlFor="position">Position</label>
+         <label htmlFor="position">Position</label><br></br>
          <input
            type="text"
            className="form-control"

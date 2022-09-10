@@ -1,1 +1,27 @@
-.Edit {}
+$primary: #a2b0cf;
+$secondary: #506491;
+$text: #fff;
+
+.form-group {
+    text-align: center;
+    line-height: 5vh;
+    font-size: max(1.3vw, 15px);
+    display: block;
+}
+
+label {
+    margin-right: 10px;
+}
+
+.form-control {
+    border: 3px $secondary solid;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: max(1.3vw, 15px);
+}
+
+input[type='radio'] {
+    top: 1px;
+    position: relative;
+    right: 15px;
+}

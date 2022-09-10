@@ -1,0 +1,18 @@
+$primary: #a2b0cf;
+$secondary: #506491;
+$text: #fff;
+
+table, th, td {
+    border: 3px $primary solid;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    font-size: 1.3vw;
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 8px;
+}

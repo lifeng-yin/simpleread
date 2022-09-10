@@ -15,7 +15,7 @@ export default function Create() {
  // This following section will display the form that takes the input from the user.
  return (
    <div>
-     <h3>Create New Record</h3>
+     <h1>Create New Record</h1>
      <form onSubmit={(e) => {
         e.preventDefault();
         create(form, "/review/add")
@@ -23,7 +23,7 @@ export default function Create() {
         navigate("/simpleread/");
      }}>
        <div className="form-group">
-         <label htmlFor="name">Name</label>
+         <label htmlFor="name">Name</label><br></br>
          <input
            type="text"
            className="form-control"
@@ -33,7 +33,7 @@ export default function Create() {
          />
        </div>
        <div className="form-group">
-         <label htmlFor="position">Position</label>
+         <label htmlFor="position">Position</label><br></br>
          <input
            type="text"
            className="form-control"
