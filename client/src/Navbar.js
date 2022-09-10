@@ -9,9 +9,9 @@ const Navbar = () => {
   return (
     <nav>
 
-        <ul className="nav__logo">
+        <ul id = 'logo'>
           <CustomLink to = '/simpleread/'>
-            <img src = {logolarge} alt = 'logo' style = {{width: '15%', minWidth: '70px', listStyleType: 'none'}}></img>
+            <img src = {logolarge} alt = 'logo' style = {{width: '100%', minWidth: '70px', listStyleType: 'none'}}></img>
           </CustomLink>
         </ul>
 

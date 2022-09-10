@@ -168,10 +168,6 @@ nav:hover {
   justify-content: flex-end;
 }
 
-.nav__logo {
-  flex: 0 1 auto;
-}
-
 nav a, .navlink {
   background-image: linear-gradient(90deg, rgba(201,187,207,1) 22%, rgba(214,239,237,1) 76%);
   background-size: 0% 5px;
@@ -183,6 +179,19 @@ nav a, .navlink {
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s, background-size 0.5s ease;
+}
+
+#logo {
+  flex: 0 1 auto;
+  background: none;
+  background-image: none;
+  width: 5%;
+
+  &:hover {
+    background-size: 100% 5px;
+    background: none;
+    background-image: none;  
+  }
 }
 
 .navspacer {
