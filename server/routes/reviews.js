@@ -1,5 +1,5 @@
 // get JWT functions
-const {generateJWT, verifyJWT} = require("./user")
+const {generateJWT, verifyJWT} = require("../utils/tokenUtils")
 
 const express = require("express");
 // recordRoutes is an instance of the express router.
