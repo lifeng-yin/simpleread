@@ -2,11 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 
-$primary: #a2b0cf;
-$secondary: #506491;
-$text: #fff;
-
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,11 +9,11 @@ $text: #fff;
 }
 
 html {
-    overflow:auto;
+  overflow: auto;
 }
 
 body {
-  background: linear-gradient(90deg, rgba(201,187,207,1) 22%, rgba(214,239,237,1) 76%);
+  background: linear-gradient(90deg, rgba(201, 187, 207, 1) 22%, rgba(214, 239, 237, 1) 76%);
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
@@ -29,50 +24,53 @@ body {
 }
 
 .lazy-preloader {
-    width: 42px;
-    height: 42px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -21px;
-    margin-top: -21px;
-    z-index: 10;
-    transform-origin: 50%;
-    box-sizing: border-box;
-    border: 4px solid $primary;
-    border-radius: 50%;
-    border-top-color: transparent;
-    background: none;
-    animation: preloader-spin 1s infinite linear;
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -21px;
+  margin-top: -21px;
+  z-index: 10;
+  transform-origin: 50%;
+  box-sizing: border-box;
+  border: 4px solid $primary;
+  border-radius: 50%;
+  border-top-color: transparent;
+  background: none;
+  animation: preloader-spin 1s infinite linear;
 }
 
 
 @keyframes preloader-spin {
-    0% {
+  0% {
     transform: rotate(0deg);
-    }
-    100% {
+  }
+
+  100% {
     transform: rotate(360deg);
-    }
+  }
 }
 
 .desktop {
   @include respond-to(mobile) {
-      
+
     display: none;
-  };
-  
+  }
+
+  ;
+
   @include respond-to(desktop) {
     display: initial;
   }
-  
+
 }
 
 .mobile {
-  @include respond-to(mobile){
+  @include respond-to(mobile) {
     display: initial;
   }
-  
+
   @include respond-to(desktop) {
     display: none;
   }
@@ -107,7 +105,8 @@ h1 {
   font-size: max(2.5vw, 2em, 2rem);
 }
 
-button, .btn {
+button,
+.btn {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   background-color: $primary;
@@ -120,12 +119,14 @@ button, .btn {
   text-decoration: none;
 }
 
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
   background-color: darken($primary, 10%);
   cursor: pointer;
 }
 
-button:active, .btn:active {
+button:active,
+.btn:active {
   transform: scale(0.9);
 }
 
@@ -148,8 +149,9 @@ nav {
   z-index: 10;
 }
 
-nav ul, nav ul.nav__links {
-  @include respond-to(desktop){
+nav ul,
+nav ul.nav__links {
+  @include respond-to(desktop) {
     list-style: none;
     margin: 0;
     display: flex;
@@ -168,8 +170,9 @@ nav:hover {
   justify-content: flex-end;
 }
 
-nav a, .navlink {
-  background-image: linear-gradient(90deg, rgba(201,187,207,1) 22%, rgba(214,239,237,1) 76%);
+nav a,
+.navlink {
+  background-image: linear-gradient(90deg, rgba(201, 187, 207, 1) 22%, rgba(214, 239, 237, 1) 76%);
   background-size: 0% 5px;
   background-repeat: no-repeat;
   background-position: left bottom;
@@ -190,7 +193,7 @@ nav a, .navlink {
   &:hover {
     background-size: 100% 5px;
     background: none;
-    background-image: none;  
+    background-image: none;
   }
 }
 
@@ -201,6 +204,7 @@ nav a, .navlink {
   text-decoration: none;
 }
 
-nav a:hover, .navlink:hover {
+nav a:hover,
+.navlink:hover {
   background-size: 100% 5px;
 }

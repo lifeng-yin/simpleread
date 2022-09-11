@@ -1,5 +1,5 @@
 // get JWT functions
-const {generateJWT, verifyJWT} = require("../utils/tokenUtils")
+const { generateJWT, verifyJWT } = require("../utils/tokenUtils");
 
 const express = require("express");
 
@@ -16,7 +16,6 @@ const ObjectId = require("mongodb").ObjectId;
 
 // authentication imports
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const saltRounds = 10;
 require("dotenv").config({ path: "../config.env" });
 
@@ -77,10 +76,9 @@ recordRoutes.route("/user/register").post(async function (req, res) {
     });
 
     console.log("1 user added");
-    return res
+    return res;
   }
 });
-
 
 recordRoutes.route("/user/login").post((req, res) => {
   const loginCreds = req.body;
@@ -147,7 +145,6 @@ recordRoutes.route("/user/login").post((req, res) => {
   });
 });
 
-
 // checks refresh token validity then generates new access token
 recordRoutes.route("/user/getToken").get(
   (req, res, next) => {
@@ -174,7 +171,7 @@ recordRoutes.route("/user/getToken").get(
       message: "Success",
       token: "Bearer " + accessToken,
       user: {
-        username: req.user.username
+        username: req.user.username,
       },
       isLoggedIn: true,
     });

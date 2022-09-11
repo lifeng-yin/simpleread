@@ -1,43 +1,43 @@
 import React, { useContext } from "react";
 import { create, useForm } from "../../../utilities/database.js";
-import Field from "../Field/Field.js";
+import Field from "../../signin/Field/Field.js";
 import PropTypes from "prop-types";
-import TokenContext from "../TokenContext/TokenContext.js";
-import "./SignInForm.scss";
+import TokenContext from "../../signin/TokenContext/TokenContext.js";
+import "../../signin/SignInForm/SignInForm.scss";
 
-const SignInForm = (props) => {
+const AddReviewForm = (props) => {
   const [form, setForm, updateForm] = useForm({
-    username: "",
-    password: "",
+    bookname: "",
+    review: "",
+    rating: 0,
   });
   const { user } = useContext(TokenContext);
 
   return (
     <form
-      className="SignInForm"
-      data-testid="SignInForm"
+      className="AddReviewForm"
+      data-testid="AddReviewForm"
       onSubmit={(e) => props.onSubmit(e, form, setForm)}
     >
-      <h3>Sign In</h3>
+      <h3>Create New Record</h3>
       <Field
-        name="Username"
-        label="Username or email"
+        name="Bookname"
+        label="Book name"
         form={form}
         onChange={props.onChange}
         updateForm={updateForm}
       />
       <Field
-        name="Password"
+        name="Review"
         form={form}
         onChange={props.onChange}
         updateForm={updateForm}
-        type="password"
       />
 
       <div className="form-group cta">
         <input
           type="submit"
-          value="Sign In"
+          value="Submit Review"
           className="btn btn-primary"
           disabled={user ? true : false}
         />
@@ -46,12 +46,12 @@ const SignInForm = (props) => {
   );
 };
 
-SignInForm.propTypes = {
+AddReviewForm.propTypes = {
   onSubmit: PropTypes.func,
   onChange: PropTypes.func,
 };
 
-SignInForm.defaultProps = {
+AddReviewForm.defaultProps = {
   onSubmit: (e, form, setForm) => create(form, "/user"),
   onChange: (e, updateForm, field) => {
     let obj = {};
@@ -60,4 +60,4 @@ SignInForm.defaultProps = {
   },
 };
 
-export default SignInForm;
+export default AddReviewForm;

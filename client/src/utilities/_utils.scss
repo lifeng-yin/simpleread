@@ -1,3 +1,6 @@
+$primary: #a2b0cf;
+$secondary: #506491;
+$text: #fff;
 
 @mixin respond-to($media) {
     @if $media == desktop {

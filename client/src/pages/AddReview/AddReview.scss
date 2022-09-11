@@ -1,6 +1,4 @@
-$primary: #a2b0cf;
-$secondary: #506491;
-$text: #fff;
+@use "../../utilities/_utils.scss" as *;
 
 .form-group {
     text-align: center;
