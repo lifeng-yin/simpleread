@@ -9,10 +9,9 @@ export default function Create() {
   const { token } = useContext(TokenContext);
   const navigate = useNavigate();
 
-  // TEMP
   return (
     <div>
-      {!token ? (
+      {token ? (
         <AddReviewForm
           onSubmit={(e, form, setForm) => {
             e.preventDefault();
