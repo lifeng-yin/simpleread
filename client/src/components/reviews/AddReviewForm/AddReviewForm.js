@@ -33,6 +33,20 @@ const AddReviewForm = (props) => {
         onChange={props.onChange}
         updateForm={updateForm}
       />
+      <Field
+        name="Rating"
+        form={form}
+        onChange={props.onChange}
+        updateForm={updateForm}
+        type="range"
+        extra={{
+          max: "5",
+          min: "0",
+          step: "0.5",
+        }}
+      >
+        <p className="rating-value">{form.rating}</p>
+      </Field>
 
       <div className="form-group cta">
         <input
