@@ -53,7 +53,7 @@ const AddReviewForm = (props) => {
           type="submit"
           value="Submit Review"
           className="btn btn-primary"
-          disabled={user ? true : false}
+          disabled={user ? false : true}
         />
       </div>
     </form>

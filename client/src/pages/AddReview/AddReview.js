@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router";
-import { create } from "../../utilities/database.js";
+import { useFetch } from "../../utilities/database.js";
 import TokenContext from "../../components/signin/TokenContext/TokenContext.js";
 import AddReviewForm from "../../components/reviews/AddReviewForm/AddReviewForm.js";
 import "./AddReview.scss";
 
 export default function Create() {
-  const { token } = useContext(TokenContext);
+  const { token, user } = useContext(TokenContext);
   const navigate = useNavigate();
+  let secureFetch;
+  useFetch().then((e) => {
+    secureFetch = e;
+  });
 
   return (
     <div>
@@ -15,7 +19,10 @@ export default function Create() {
         <AddReviewForm
           onSubmit={(e, form, setForm) => {
             e.preventDefault();
-            create(form, "/reviews/add", "include");
+            secureFetch("/review/add", {
+              ...form,
+              ...{ username: user.username },
+            });
             setForm({ bookname: "", review: "", rating: 0 });
             navigate("/simpleread/");
           }}
