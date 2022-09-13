@@ -12,7 +12,6 @@ export default function Create() {
   useFetch().then((e) => {
     secureFetch = e;
   });
-
   return (
     <div>
       {token ? (

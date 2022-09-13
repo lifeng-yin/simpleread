@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-if grep -R --exclude-dir='.?*' "// TEMP" .
+if git grep -rli "// TEMP" client/ server/
 then
 exit 1
 fi
+
+cd client
+npm run build
