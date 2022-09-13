@@ -8,3 +8,4 @@ fi
 
 cd client
 npm run build
+git add .
