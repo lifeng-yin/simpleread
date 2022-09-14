@@ -1,6 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import TokenContext from "../components/signin/TokenContext/TokenContext";
 
+/**
+ * Used to fetch things with the token, and refresh if it is expired
+ * @returns A function to fetch things with the token
+ */
 async function useFetch() {
   const { token, setToken } = useContext(TokenContext);
 
