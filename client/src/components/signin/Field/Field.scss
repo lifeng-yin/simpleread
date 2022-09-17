@@ -1,7 +1,8 @@
 .Field {
   input:not([type="range"]) {
     border-radius: 999999999999px;
-    border: 1rem solid transparent;
+    border: 0;
+    padding: 1rem;
   }
 
   input[type="range"] {
