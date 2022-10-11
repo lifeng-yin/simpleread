@@ -14,6 +14,7 @@ const AddReview = React.lazy(() => import("./pages/AddReview/AddReview.js"));
 const Edit = React.lazy(() => import("./pages/Edit/Edit.js"));
 const SignIn = React.lazy(() => import("./pages/SignIn/SignIn.js"));
 const Navbar = React.lazy(() => import("./Navbar.js"));
+const NotFound = React.lazy(() => import("./pages/404/NotFound.js"));
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -40,7 +41,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/edit/:id" element={<Edit />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/*" element={<div>404</div>} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </React.Suspense>
     </TokenContext.Provider>
