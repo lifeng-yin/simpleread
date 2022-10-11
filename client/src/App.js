@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
-import TokenContext from "./components/signin/TokenContext/TokenContext"
+import TokenContext from "./components/signin/TokenContext/TokenContext";
 
-import {getToken} from "./utilities/database"
+import { getToken } from "./utilities/database";
 
 //import react router
 import { Route, Routes } from "react-router-dom";
@@ -14,35 +14,34 @@ const AddReview = React.lazy(() => import("./pages/AddReview/AddReview.js"));
 const Edit = React.lazy(() => import("./pages/Edit/Edit.js"));
 const SignIn = React.lazy(() => import("./pages/SignIn/SignIn.js"));
 const Navbar = React.lazy(() => import("./Navbar.js"));
-
+const NotFound = React.lazy(() => import("./pages/404/NotFound.js"));
 
 const App = () => {
-    const [token, setToken] = useState("")
-    const [user, setUser] = useState({})
+  const [token, setToken] = useState("");
+  const [user, setUser] = useState({});
 
-    useEffect(() => {
-        async function doTokenThing() {
-            let response = await getToken()
-            setToken(response?.token)
-            setUser(response?.user)
-          }
-        
-        doTokenThing()
-    }, [])
+  useEffect(() => {
+    async function doTokenThing() {
+      let response = await getToken();
+      setToken(response?.token);
+      setUser(response?.user);
+    }
 
-    
-    
+    doTokenThing();
+  }, []);
+
   return (
-    <TokenContext.Provider value={{token, setToken, user, setUser}} >
+    <TokenContext.Provider value={{ token, setToken, user, setUser }}>
       <Navbar />
       <React.Suspense fallback={<div className="lazy-preloader"></div>}>
         <Routes>
-          <Route path="/simpleread/" element={<Home />} />
-          <Route path="/simpleread/explore" element={<Reviews />} />
-          <Route path="/simpleread/add" element={<AddReview />} />
-          <Route path="/simpleread/about" element={<About />} />
-          <Route path="/simpleread/edit/:id" element={<Edit />} />
-          <Route path="/simpleread/signin" element={<SignIn />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/explore" element={<Reviews />} />
+          <Route path="/add" element={<AddReview />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/edit/:id" element={<Edit />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </React.Suspense>
     </TokenContext.Provider>
