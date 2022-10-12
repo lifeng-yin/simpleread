@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/simpleread/static/css/main.b1781785.css",
-    "main.js": "/simpleread/static/js/main.2448556f.js",
+    "main.js": "/simpleread/static/js/main.3bc72785.js",
     "static/css/848.31d6cfe0.chunk.css": "/simpleread/static/css/848.31d6cfe0.chunk.css",
     "static/js/848.688b8b1d.chunk.js": "/simpleread/static/js/848.688b8b1d.chunk.js",
     "static/css/604.31d6cfe0.chunk.css": "/simpleread/static/css/604.31d6cfe0.chunk.css",
@@ -12,10 +12,10 @@
     "static/js/822.90a0d8c3.chunk.js": "/simpleread/static/js/822.90a0d8c3.chunk.js",
     "static/css/751.7c1d0aa8.chunk.css": "/simpleread/static/css/751.7c1d0aa8.chunk.css",
     "static/js/751.e9d6493f.chunk.js": "/simpleread/static/js/751.e9d6493f.chunk.js",
-    "static/css/588.445c1b94.chunk.css": "/simpleread/static/css/588.445c1b94.chunk.css",
-    "static/js/588.cd789bc9.chunk.js": "/simpleread/static/js/588.cd789bc9.chunk.js",
+    "static/css/588.d186899d.chunk.css": "/simpleread/static/css/588.d186899d.chunk.css",
+    "static/js/588.86364c27.chunk.js": "/simpleread/static/js/588.86364c27.chunk.js",
     "static/css/107.9b34e4af.chunk.css": "/simpleread/static/css/107.9b34e4af.chunk.css",
-    "static/js/107.c3590cc4.chunk.js": "/simpleread/static/js/107.c3590cc4.chunk.js",
+    "static/js/107.e4025cba.chunk.js": "/simpleread/static/js/107.e4025cba.chunk.js",
     "static/css/57.c34cf2f7.chunk.css": "/simpleread/static/css/57.c34cf2f7.chunk.css",
     "static/js/57.23ba1508.chunk.js": "/simpleread/static/js/57.23ba1508.chunk.js",
     "static/js/787.5733928c.chunk.js": "/simpleread/static/js/787.5733928c.chunk.js",
@@ -25,7 +25,7 @@
     "static/media/404.svg": "/simpleread/static/media/404.c4ac23b903f53dbe74e54f589a2b9154.svg",
     "index.html": "/simpleread/index.html",
     "main.b1781785.css.map": "/simpleread/static/css/main.b1781785.css.map",
-    "main.2448556f.js.map": "/simpleread/static/js/main.2448556f.js.map",
+    "main.3bc72785.js.map": "/simpleread/static/js/main.3bc72785.js.map",
     "848.688b8b1d.chunk.js.map": "/simpleread/static/js/848.688b8b1d.chunk.js.map",
     "604.9de70af6.chunk.js.map": "/simpleread/static/js/604.9de70af6.chunk.js.map",
     "809.63247bb2.chunk.css.map": "/simpleread/static/css/809.63247bb2.chunk.css.map",
@@ -34,10 +34,10 @@
     "822.90a0d8c3.chunk.js.map": "/simpleread/static/js/822.90a0d8c3.chunk.js.map",
     "751.7c1d0aa8.chunk.css.map": "/simpleread/static/css/751.7c1d0aa8.chunk.css.map",
     "751.e9d6493f.chunk.js.map": "/simpleread/static/js/751.e9d6493f.chunk.js.map",
-    "588.445c1b94.chunk.css.map": "/simpleread/static/css/588.445c1b94.chunk.css.map",
-    "588.cd789bc9.chunk.js.map": "/simpleread/static/js/588.cd789bc9.chunk.js.map",
+    "588.d186899d.chunk.css.map": "/simpleread/static/css/588.d186899d.chunk.css.map",
+    "588.86364c27.chunk.js.map": "/simpleread/static/js/588.86364c27.chunk.js.map",
     "107.9b34e4af.chunk.css.map": "/simpleread/static/css/107.9b34e4af.chunk.css.map",
-    "107.c3590cc4.chunk.js.map": "/simpleread/static/js/107.c3590cc4.chunk.js.map",
+    "107.e4025cba.chunk.js.map": "/simpleread/static/js/107.e4025cba.chunk.js.map",
     "57.c34cf2f7.chunk.css.map": "/simpleread/static/css/57.c34cf2f7.chunk.css.map",
     "57.23ba1508.chunk.js.map": "/simpleread/static/js/57.23ba1508.chunk.js.map",
     "787.5733928c.chunk.js.map": "/simpleread/static/js/787.5733928c.chunk.js.map",
@@ -46,6 +46,6 @@
   },
   "entrypoints": [
     "static/css/main.b1781785.css",
-    "static/js/main.2448556f.js"
+    "static/js/main.3bc72785.js"
   ]
 }
