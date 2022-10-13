@@ -15,6 +15,8 @@ const Edit = React.lazy(() => import("./pages/Edit/Edit.js"));
 const SignIn = React.lazy(() => import("./pages/SignIn/SignIn.js"));
 const Navbar = React.lazy(() => import("./Navbar.js"));
 const NotFound = React.lazy(() => import("./pages/404/NotFound.js"));
+const CookiePopup = React.lazy(() => import("./components/cookiepopup/CookiePopup.js"));
+console.log(CookiePopup)
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -33,6 +35,7 @@ const App = () => {
   return (
     <TokenContext.Provider value={{ token, setToken, user, setUser }}>
       <Navbar />
+      <CookiePopup />
       <React.Suspense fallback={<div className="lazy-preloader"></div>}>
         <Routes>
           <Route path="/" element={<Home />} />
