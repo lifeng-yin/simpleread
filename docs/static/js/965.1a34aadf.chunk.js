@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksimpleread=self.webpackChunksimpleread||[]).push([[965],{965:function(e,i,s){s.r(i),s.d(i,{default:function(){return r}});var n=s(184),r=function(){return(0,n.jsx)("div",{id:"popup",children:(0,n.jsxs)("div",{children:[(0,n.jsx)("h2",{children:"Cookies"}),(0,n.jsx)("p",{children:"SimpleRead uses cookies to make the most of your experience."})]})})}}}]);
+//# sourceMappingURL=965.1a34aadf.chunk.js.map

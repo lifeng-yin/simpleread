@@ -1,0 +1,43 @@
+@use "../../utilities/_utils.scss" as *;
+
+@keyframes fade-in{
+    from {
+        opacity: 0;
+    } to {
+        opacity: inherit;
+    }
+}
+
+#popup {
+    display: block;
+    width: 100%;
+    height: 100%;
+        
+    div {
+        position: fixed;
+        border-top: 3px solid black;
+        bottom: 0;
+        padding: 15px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: $primary;   
+          
+        animation: fade-in 4s ease;   
+    }
+    
+    p {
+        width: 100%;
+        text-align: center;
+    }
+    
+    h2 {
+        position: absolute;
+        left: 10 !important;
+    }
+    
+    button {
+        background-color: white;
+        color: $secondary;
+    }
+}
