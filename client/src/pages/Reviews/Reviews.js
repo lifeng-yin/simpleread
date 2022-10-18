@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { remove, useDatabase } from "../../utilities/database.js";
+import { useDatabase, useFetch } from "../../utilities/database.js";
 import "./Reviews.scss";
 
 const Record = (props) => (
   <tr>
-    <td>{props.record.name}</td>
-    <td>{props.record.position}</td>
-    <td>{props.record.level}</td>
+    <td>{props.record.username}</td>
+    <td>{props.record.review}</td>
+    <td>{props.record.rating}</td>
+    <td>{props.record.bookname}</td>
     <td>
       <Link
         className="btn btn-link"
@@ -26,12 +27,13 @@ const Record = (props) => (
   </tr>
 );
 
-export default function RecordList() {
+export default async function RecordList() {
   const [records, setRecords] = useDatabase("/review");
+  const secureFetch = await useFetch();
 
   // This method will delete a record
   async function deleteRecord(id) {
-    await remove(id, "/review");
+    await secureFetch(`/review/${id}`, undefined, "DELETE");
 
     const newRecords = records.filter((el) => el._id !== id);
     setRecords(newRecords);
@@ -57,9 +59,10 @@ export default function RecordList() {
       <table style={{ marginTop: 20 }}>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Level</th>
+            <th>Username</th>
+            <th>Review</th>
+            <th>Rating</th>
+            <th>Book</th>
             <th>Action</th>
           </tr>
         </thead>

@@ -3,16 +3,16 @@ import TokenContext from "../components/signin/TokenContext/TokenContext";
 
 /**
  * Used to fetch things with the token, and refresh if it is expired
- * @returns A function to fetch things with the token
+ * @returns A function {@link secureFetch} to fetch things with the token
  */
 async function useFetch() {
   const { token, setToken } = useContext(TokenContext);
 
-  async function fetchContent(path, payload = undefined) {
+  async function fetchContent(path, payload = undefined, method = undefined) {
     return await fetch(
       (process.env.REACT_APP_SERVER_URL || "http://localhost:5000") + path,
       {
-        method: payload ? "POST" : "GET",
+        method: method || payload ? "POST" : "GET",
         headers: {
           "Content-Type": "application/json",
           "x-access-token": token,
@@ -27,12 +27,13 @@ async function useFetch() {
 
   /**
    * Fetch something with the JWT
-   * @param {string} path
-   * @param {object} payload
-   * @returns response
+   * @param {string} path - The path on the server you want to access
+   * @param {Object} [payload=undefined] - The stuff you give to the server (if POST request)
+   * @param {string} [method=undefined] - The method (POST, GET, DELETE, etc)
+   * @returns response of server
    */
-  async function secureFetch(path, payload = undefined) {
-    let data = await fetchContent(path, payload);
+  async function secureFetch(path, payload = undefined, method = undefined) {
+    let data = await fetchContent(path, payload, method);
     if (!data.isLoggedIn) {
       let newToken = await getToken();
 
@@ -40,7 +41,7 @@ async function useFetch() {
         return { failed: true, message: newToken.message };
       else {
         setToken(newToken.token);
-        return await fetchContent(path, payload);
+        return await fetchContent(path, payload, method);
       }
     } else {
       return data;

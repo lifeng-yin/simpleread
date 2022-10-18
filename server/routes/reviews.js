@@ -15,7 +15,7 @@ const Review = require("../models/review");
 const ObjectId = require("mongodb").ObjectId;
 
 // This section will help you get a list of all the reviews.
-recordRoutes.route("/review").get(function (req, res) {
+recordRoutes.route("").get(function (req, res) {
   Review.find({})
     .lean()
     .exec((err, result) => {
@@ -25,7 +25,7 @@ recordRoutes.route("/review").get(function (req, res) {
 });
 
 // This section will help you get a single record by id
-recordRoutes.route("/review/:id").get(function (req, res) {
+recordRoutes.route("/:id").get(function (req, res) {
   Review.findOne({ _id: ObjectId(req.params.id) }).exec((err, result) => {
     if (err) throw err;
     res.json(result);
@@ -33,7 +33,7 @@ recordRoutes.route("/review/:id").get(function (req, res) {
 });
 
 // This section will help you create a new record.
-recordRoutes.route("/review/add").post(verifyJWT, function (req, response) {
+recordRoutes.route("/add").post(verifyJWT, function (req, response) {
   const dbReview = new Review({
     ...req.body,
     ...{ userId: req.user.id },
@@ -45,22 +45,20 @@ recordRoutes.route("/review/add").post(verifyJWT, function (req, response) {
 });
 
 // This section will help you update a record by id.
-recordRoutes
-  .route("/review/update/:id")
-  .post(verifyJWT, function (req, response) {
-    Review.findOneAndUpdate(
-      { _id: ObjectId(req.params.id) },
-      { $set: req.body },
-      (err, res) => {
-        if (err) throw err;
-        console.log("1 document updated");
-        response.json(res);
-      }
-    );
-  });
+recordRoutes.route("/update/:id").post(verifyJWT, function (req, response) {
+  Review.findOneAndUpdate(
+    { _id: ObjectId(req.params.id) },
+    { $set: req.body },
+    (err, res) => {
+      if (err) throw err;
+      console.log("1 document updated");
+      response.json(res);
+    }
+  );
+});
 
 // This section will help you delete a record
-recordRoutes.route("/review/:id").delete(verifyJWT, (req, response) => {
+recordRoutes.route("/:id").delete(verifyJWT, (req, response) => {
   Review.findOneAndDelete({ _id: ObjectId(req.params.id) }).exec((err, obj) => {
     if (err) throw err;
     console.log("1 document deleted");

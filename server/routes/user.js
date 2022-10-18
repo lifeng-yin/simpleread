@@ -20,7 +20,7 @@ const saltRounds = 10;
 require("dotenv").config({ path: "../config.env" });
 
 // This section will help you create a new record.
-recordRoutes.route("/user/register").post(async function (req, res) {
+recordRoutes.route("/register").post(async function (req, res) {
   const user = req.body;
 
   // check whether user already exists
@@ -80,7 +80,7 @@ recordRoutes.route("/user/register").post(async function (req, res) {
   }
 });
 
-recordRoutes.route("/user/login").post((req, res) => {
+recordRoutes.route("/login").post((req, res) => {
   const loginCreds = req.body;
 
   // try to find user
@@ -146,7 +146,7 @@ recordRoutes.route("/user/login").post((req, res) => {
 });
 
 // checks refresh token validity then generates new access token
-recordRoutes.route("/user/getToken").get(
+recordRoutes.route("/getToken").get(
   (req, res, next) => {
     verifyJWT(
       req,
@@ -180,7 +180,7 @@ recordRoutes.route("/user/getToken").get(
   }
 );
 
-recordRoutes.route("/user/getUsername").get(verifyJWT, (req, res) => {
+recordRoutes.route("/getUsername").get(verifyJWT, (req, res) => {
   res.json({ isLoggedIn: true, username: req.user.username });
 });
 
