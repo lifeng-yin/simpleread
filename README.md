@@ -9,4 +9,12 @@
 
 A simple, minimalist book review website
 
-https://lifeng-yin.github.io/simpleread/
+## What we used
+- React
+- JavaScript
+- SASS
+- React Icons
+- Node.js/express
+- MongoDB
+
+https://simpleread.netlify.app/
